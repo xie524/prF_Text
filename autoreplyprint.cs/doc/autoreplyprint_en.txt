@@ -1,0 +1,3117 @@
+
+using System;
+using System.Runtime.InteropServices;
+
+namespace autoreplyprint.cs
+{
+public class AutoReplyPrint
+{
+
+
+    public const int CP_ComDataBits_4 = 4;
+    public const int CP_ComDataBits_5 = 5;
+    public const int CP_ComDataBits_6 = 6;
+    public const int CP_ComDataBits_7 = 7;
+    public const int CP_ComDataBits_8 = 8;
+
+
+    public const int CP_ComParity_NoParity = 0;
+    public const int CP_ComParity_OddParity = 1;
+    public const int CP_ComParity_EvenParity = 2;
+    public const int CP_ComParity_MarkParity = 3;
+    public const int CP_ComParity_SpaceParity = 4;
+
+
+    public const int CP_ComStopBits_One = 0;
+    public const int CP_ComStopBits_OnePointFive = 1;
+    public const int CP_ComStopBits_Two = 2;
+
+
+    public const int CP_ComFlowControl_None = 0;
+    public const int CP_ComFlowControl_XonXoff = 1;
+    public const int CP_ComFlowControl_RtsCts = 2;
+    public const int CP_ComFlowControl_DtrDsr = 3;
+
+
+    public const int CP_CharacterSet_USA = 0;
+    public const int CP_CharacterSet_FRANCE = 1;
+    public const int CP_CharacterSet_GERMANY = 2;
+    public const int CP_CharacterSet_UK = 3;
+    public const int CP_CharacterSet_DENMARK_I = 4;
+    public const int CP_CharacterSet_SWEDEN = 5;
+    public const int CP_CharacterSet_ITALY = 6;
+    public const int CP_CharacterSet_SPAIN_I = 7;
+    public const int CP_CharacterSet_JAPAN = 8;
+    public const int CP_CharacterSet_NORWAY = 9;
+    public const int CP_CharacterSet_DENMARK_II = 10;
+    public const int CP_CharacterSet_SPAIN_II = 11;
+    public const int CP_CharacterSet_LATIN = 12;
+    public const int CP_CharacterSet_KOREA = 13;
+    public const int CP_CharacterSet_SLOVENIA = 14;
+    public const int CP_CharacterSet_CHINA = 15;
+
+
+    public const int CP_CharacterCodepage_CP437 = 0;
+    public const int CP_CharacterCodepage_KATAKANA = 1;
+    public const int CP_CharacterCodepage_CP850 = 2;
+    public const int CP_CharacterCodepage_CP860 = 3;
+    public const int CP_CharacterCodepage_CP863 = 4;
+    public const int CP_CharacterCodepage_CP865 = 5;
+    public const int CP_CharacterCodepage_WCP1251 = 6;
+    public const int CP_CharacterCodepage_CP866 = 7;
+    public const int CP_CharacterCodepage_MIK = 8;
+    public const int CP_CharacterCodepage_CP755 = 9;
+    public const int CP_CharacterCodepage_IRAN = 10;
+    public const int CP_CharacterCodepage_CP862 = 15;
+    public const int CP_CharacterCodepage_WCP1252 = 16;
+    public const int CP_CharacterCodepage_WCP1253 = 17;
+    public const int CP_CharacterCodepage_CP852 = 18;
+    public const int CP_CharacterCodepage_CP858 = 19;
+    public const int CP_CharacterCodepage_IRAN_II = 20;
+    public const int CP_CharacterCodepage_LATVIAN = 21;
+    public const int CP_CharacterCodepage_CP864 = 22;
+    public const int CP_CharacterCodepage_ISO_8859_1 = 23;
+    public const int CP_CharacterCodepage_CP737 = 24;
+    public const int CP_CharacterCodepage_WCP1257 = 25;
+    public const int CP_CharacterCodepage_THAI = 26;
+    public const int CP_CharacterCodepage_CP720 = 27;
+    public const int CP_CharacterCodepage_CP855 = 28;
+    public const int CP_CharacterCodepage_CP857 = 29;
+    public const int CP_CharacterCodepage_WCP1250 = 30;
+    public const int CP_CharacterCodepage_CP775 = 31;
+    public const int CP_CharacterCodepage_WCP1254 = 32;
+    public const int CP_CharacterCodepage_WCP1255 = 33;
+    public const int CP_CharacterCodepage_WCP1256 = 34;
+    public const int CP_CharacterCodepage_WCP1258 = 35;
+    public const int CP_CharacterCodepage_ISO_8859_2 = 36;
+    public const int CP_CharacterCodepage_ISO_8859_3 = 37;
+    public const int CP_CharacterCodepage_ISO_8859_4 = 38;
+    public const int CP_CharacterCodepage_ISO_8859_5 = 39;
+    public const int CP_CharacterCodepage_ISO_8859_6 = 40;
+    public const int CP_CharacterCodepage_ISO_8859_7 = 41;
+    public const int CP_CharacterCodepage_ISO_8859_8 = 42;
+    public const int CP_CharacterCodepage_ISO_8859_9 = 43;
+    public const int CP_CharacterCodepage_ISO_8859_15 = 44;
+    public const int CP_CharacterCodepage_THAI_2 = 45;
+    public const int CP_CharacterCodepage_CP856 = 46;
+    public const int CP_CharacterCodepage_CP874 = 47;
+    public const int CP_CharacterCodepage_TCVN3 = 48;
+
+
+    public const int CP_MultiByteEncoding_GBK = 0;
+    public const int CP_MultiByteEncoding_UTF8 = 1;
+    public const int CP_MultiByteEncoding_BIG5 = 3;
+    public const int CP_MultiByteEncoding_ShiftJIS = 4;
+    public const int CP_MultiByteEncoding_EUCKR = 5;
+
+
+    public const int CP_ImageBinarizationMethod_Dithering = 0;
+    public const int CP_ImageBinarizationMethod_Thresholding = 1;
+    public const int CP_ImageBinarizationMethod_ErrorDiffusion = 2;
+
+
+    public const int CP_ImageCompressionMethod_None = 0;
+    public const int CP_ImageCompressionMethod_Level1 = 1;
+    public const int CP_ImageCompressionMethod_Level2 = 2;
+
+
+    public const int CP_ImagePixelsFormat_MONO = 1;
+    public const int CP_ImagePixelsFormat_MONOLSB = 2;
+    public const int CP_ImagePixelsFormat_GRAY8 = 3;
+    public const int CP_ImagePixelsFormat_BYTEORDERED_RGB24 = 4;
+    public const int CP_ImagePixelsFormat_BYTEORDERED_BGR24 = 5;
+    public const int CP_ImagePixelsFormat_BYTEORDERED_ARGB32 = 6;
+    public const int CP_ImagePixelsFormat_BYTEORDERED_RGBA32 = 7;
+    public const int CP_ImagePixelsFormat_BYTEORDERED_ABGR32 = 8;
+    public const int CP_ImagePixelsFormat_BYTEORDERED_BGRA32 = 9;
+
+
+    public const int CP_QRCodeECC_L = 1;
+    public const int CP_QRCodeECC_M = 2;
+    public const int CP_QRCodeECC_Q = 3;
+    public const int CP_QRCodeECC_H = 4;
+
+
+    public const int CP_Pos_Alignment_Left = 0;
+    public const int CP_Pos_Alignment_HCenter = 1;
+    public const int CP_Pos_Alignment_Right = 2;
+
+
+    public const int CP_Pos_BarcodeType_UPCA = 0x41;
+    public const int CP_Pos_BarcodeType_UPCE = 0x42;
+    public const int CP_Pos_BarcodeType_EAN13 = 0x43;
+    public const int CP_Pos_BarcodeType_EAN8 = 0x44;
+    public const int CP_Pos_BarcodeType_CODE39 = 0x45;
+    public const int CP_Pos_BarcodeType_ITF = 0x46;
+    public const int CP_Pos_BarcodeType_CODEBAR = 0x47;
+    public const int CP_Pos_BarcodeType_CODE93 = 0x48;
+    public const int CP_Pos_BarcodeType_CODE128 = 0x49;
+
+
+    public const int CP_Pos_BarcodeTextPrintPosition_None = 0;
+    public const int CP_Pos_BarcodeTextPrintPosition_AboveBarcode = 1;
+    public const int CP_Pos_BarcodeTextPrintPosition_BelowBarcode = 2;
+    public const int CP_Pos_BarcodeTextPrintPosition_AboveAndBelowBarcode = 3;
+
+
+    public const int CP_Page_DrawDirection_LeftToRight = 0;
+    public const int CP_Page_DrawDirection_BottomToTop = 1;
+    public const int CP_Page_DrawDirection_RightToLeft = 2;
+    public const int CP_Page_DrawDirection_TopToBottom = 3;
+
+    // Page mode draw functions (CP_Page_DrawXXX)
+    // Horizontal and vertical coordinates can be specified as -1 -2 -3 to indicate that the print is aligned
+    public const int CP_Page_DrawAlignment_Left = -1;
+    public const int CP_Page_DrawAlignment_HCenter = -2;
+    public const int CP_Page_DrawAlignment_Right = -3;
+    public const int CP_Page_DrawAlignment_Top = -1;
+    public const int CP_Page_DrawAlignment_VCenter = -2;
+    public const int CP_Page_DrawAlignment_Bottom = -3;
+
+
+    public const int CP_Label_BarcodeType_UPCA = 0;
+    public const int CP_Label_BarcodeType_UPCE = 1;
+    public const int CP_Label_BarcodeType_EAN13 = 2;
+    public const int CP_Label_BarcodeType_EAN8 = 3;
+    public const int CP_Label_BarcodeType_CODE39 = 4;
+    public const int CP_Label_BarcodeType_ITF = 5;
+    public const int CP_Label_BarcodeType_CODEBAR = 6;
+    public const int CP_Label_BarcodeType_CODE93 = 7;
+    public const int CP_Label_BarcodeType_CODE128 = 8;
+    public const int CP_Label_BarcodeType_CODE11 = 9;
+    public const int CP_Label_BarcodeType_MSI = 10;
+    public const int CP_Label_BarcodeType_128M = 11;
+    public const int CP_Label_BarcodeType_EAN128 = 12;
+    public const int CP_Label_BarcodeType_25C = 13;
+    public const int CP_Label_BarcodeType_39C = 14;
+    public const int CP_Label_BarcodeType_39 = 15;
+    public const int CP_Label_BarcodeType_EAN13PLUS2 = 16;
+    public const int CP_Label_BarcodeType_EAN13PLUS5 = 17;
+    public const int CP_Label_BarcodeType_EAN8PLUS2 = 18;
+    public const int CP_Label_BarcodeType_EAN8PLUS5 = 19;
+    public const int CP_Label_BarcodeType_POST = 20;
+    public const int CP_Label_BarcodeType_UPCAPLUS2 = 21;
+    public const int CP_Label_BarcodeType_UPCAPLUS5 = 22;
+    public const int CP_Label_BarcodeType_UPCEPLUS2 = 23;
+    public const int CP_Label_BarcodeType_UPCEPLUS5 = 24;
+    public const int CP_Label_BarcodeType_CPOST = 25;
+    public const int CP_Label_BarcodeType_MSIC = 26;
+    public const int CP_Label_BarcodeType_PLESSEY = 27;
+    public const int CP_Label_BarcodeType_ITF14 = 28;
+    public const int CP_Label_BarcodeType_EAN14 = 29;
+
+
+    public const int CP_Label_BarcodeTextPrintPosition_None = 0;
+    public const int CP_Label_BarcodeTextPrintPosition_AboveBarcode = 1;
+    public const int CP_Label_BarcodeTextPrintPosition_BelowBarcode = 2;
+    public const int CP_Label_BarcodeTextPrintPosition_AboveAndBelowBarcode = 3;
+
+
+    public const int CP_Label_Rotation_0 = 0;
+    public const int CP_Label_Rotation_90 = 1;
+    public const int CP_Label_Rotation_180 = 2;
+    public const int CP_Label_Rotation_270 = 3;
+
+
+    public const int CP_Label_Color_White = 0;
+    public const int CP_Label_Color_Black = 1;
+
+    // ERROR_CUTTER
+    //      Cutter error
+    // ERROR_FLASH
+    //      FLASH error
+    // ERROR_NOPAPER
+    //      No paper
+    // ERROR_VOLTAGE
+    //      Voltage error
+    // ERROR_MARKER
+    //      Black mark or seam mark error detected
+    // ERROR_ENGINE
+    //      Unrecognized printer engine
+    // ERROR_OVERHEAT
+    //      Overheat
+    // ERROR_COVERUP
+    //      Open cover or shaft not pressed down
+    // ERROR_MOTOR
+    //      Motor out of step (usually paper jam)
+    // INFO_LABELPAPER
+    //      Current paper identified as label paper (0 is continuous paper)
+    // INFO_LABELMODE
+    //      Currently in label mode
+    // INFO_HAVEDATA
+    //      We have data to start processing
+    // INFO_NOPAPERCANCELED
+    //      The last document was cancelled after it was short of paper
+    // INFO_PAPERNOFETCH
+    //      The documents were not taken
+    // INFO_PRINTIDLE
+    //      Current print idle
+    // INFO_RECVIDLE
+    //      The current receive buffer is empty
+    public static bool CP_PRINTERSTATUS_ERROR_CUTTER(long error_status) { return (error_status & 0x01) != 0; }
+    public static bool CP_PRINTERSTATUS_ERROR_FLASH(long error_status) { return (error_status & 0x02) != 0; }
+    public static bool CP_PRINTERSTATUS_ERROR_NOPAPER(long error_status) { return (error_status & 0x04) != 0; }
+    public static bool CP_PRINTERSTATUS_ERROR_VOLTAGE(long error_status) { return (error_status & 0x08) != 0; }
+    public static bool CP_PRINTERSTATUS_ERROR_MARKER(long error_status) { return (error_status & 0x10) != 0; }
+    public static bool CP_PRINTERSTATUS_ERROR_ENGINE(long error_status) { return (error_status & 0x20) != 0; }
+    public static bool CP_PRINTERSTATUS_ERROR_OVERHEAT(long error_status) { return (error_status & 0x40) != 0; }
+    public static bool CP_PRINTERSTATUS_ERROR_COVERUP(long error_status) { return (error_status & 0x80) != 0; }
+    public static bool CP_PRINTERSTATUS_ERROR_MOTOR(long error_status) { return (error_status & 0x100) != 0; }
+    public static bool CP_PRINTERSTATUS_INFO_LABELPAPER(long info_status) { return (info_status & 0x02) != 0; }
+    public static bool CP_PRINTERSTATUS_INFO_LABELMODE(long info_status) { return (info_status & 0x04) != 0; }
+    public static bool CP_PRINTERSTATUS_INFO_HAVEDATA(long info_status) { return (info_status & 0x08) != 0; }
+    public static bool CP_PRINTERSTATUS_INFO_NOPAPERCANCELED(long info_status) { return (info_status & 0x10) != 0; }
+    public static bool CP_PRINTERSTATUS_INFO_PAPERNOFETCH(long info_status) { return (info_status & 0x20) != 0; }
+    public static bool CP_PRINTERSTATUS_INFO_PRINTIDLE(long info_status) { return (info_status & 0x40) != 0; }
+    public static bool CP_PRINTERSTATUS_INFO_RECVIDLE(long info_status) { return (info_status & 0x80) != 0; }
+
+    // The real-time state here is four bytes
+    // From low byte to high byte corresponds to these four instructions in the instruction set:
+    //   10 04 01
+    //   10 04 02
+    //   10 04 03
+    //   10 04 04
+    // For some models, due to customization or other reasons, the definition of state value may be inconsistent with here, subject to the actual measurement
+    //
+    // DRAWER_OPENED
+    //      Drawer Opened
+    // OFFLINE
+    //      Offline
+    // COVERUP
+    //      Cover UP
+    // FEED_PRESSED
+    //      Feed Pressed
+    // NOPAPER
+    //      No Paper
+    // ERROR_OCCURED
+    //      Error Occured
+    // CUTTER_ERROR
+    //      Cutter Error
+    // UNRECOVERABLE_ERROR
+    //      Unrecoverable Error
+    // DEGREE_OR_VOLTAGE_OVERRANGE
+    //      Degree or voltage error
+    // PAPER_NEAREND
+    //      Paper Near End
+    // PAPER_TAKEOUT
+    //      Paper takeout
+    public static bool CP_RTSTATUS_DRAWER_OPENED(long status) { return (((status >> 0) & 0x04) == 0x00); }
+    public static bool CP_RTSTATUS_OFFLINE(long status) { return (((status >> 0) & 0x08) == 0x08); }
+    public static bool CP_RTSTATUS_COVERUP(long status) { return (((status >> 8) & 0x04) == 0x04); }
+    public static bool CP_RTSTATUS_FEED_PRESSED(long status) { return (((status >> 8) & 0x08) == 0x08); }
+    public static bool CP_RTSTATUS_NOPAPER(long status) { return (((status >> 8) & 0x20) == 0x20); }
+    public static bool CP_RTSTATUS_ERROR_OCCURED(long status) { return (((status >> 8) & 0x40) == 0x40); }
+    public static bool CP_RTSTATUS_CUTTER_ERROR(long status) { return (((status >> 16) & 0x08) == 0x08); }
+    public static bool CP_RTSTATUS_UNRECOVERABLE_ERROR(long status) { return (((status >> 16) & 0x20) == 0x20); }
+    public static bool CP_RTSTATUS_DEGREE_OR_VOLTAGE_OVERRANGE(long status) { return (((status >> 16) & 0x40) == 0x40); }
+    public static bool CP_RTSTATUS_PAPER_NEAREND(long status) { return (((status >> 24) & 0x0C) == 0x0C); }
+    public static bool CP_RTSTATUS_PAPER_TAKEOUT(long status) { return (((status >> 24) & 0x04) == 0x04); }
+
+
+    public const int CP_LABEL_TEXT_STYLE_BOLD = (1<<0);
+    public const int CP_LABEL_TEXT_STYLE_UNDERLINE = (1<<1);
+    public const int CP_LABEL_TEXT_STYLE_HIGHLIGHT = (1<<2);
+    public const int CP_LABEL_TEXT_STYLE_STRIKETHROUGH = (1<<3);
+    public const int CP_LABEL_TEXT_STYLE_ROTATION_0 = (0<<4);
+    public const int CP_LABEL_TEXT_STYLE_ROTATION_90 = (1<<4);
+    public const int CP_LABEL_TEXT_STYLE_ROTATION_180 = (2<<4);
+    public const int CP_LABEL_TEXT_STYLE_ROTATION_270 = (3<<4);
+    public static int CP_LABEL_TEXT_STYLE_WIDTH_ENLARGEMENT(int n) { return ((n)<<8); }
+    public static int CP_LABEL_TEXT_STYLE_HEIGHT_ENLARGEMENT(int n) { return ((n)<<12); }
+
+
+    [UnmanagedFunctionPointerAttribute(CallingConvention.Cdecl)]
+    public delegate void CP_OnNetPrinterDiscovered(String local_ip, String discovered_mac, String discovered_ip, String discovered_name, UIntPtr private_data);
+
+
+    [UnmanagedFunctionPointerAttribute(CallingConvention.Cdecl)]
+    public delegate void CP_OnPortClosedEvent(UIntPtr handle, UIntPtr private_data);
+
+
+    [UnmanagedFunctionPointerAttribute(CallingConvention.Cdecl)]
+    public delegate void CP_OnPortWrittenEvent(UIntPtr handle, IntPtr buffer, int count, UIntPtr private_data);
+
+
+    [UnmanagedFunctionPointerAttribute(CallingConvention.Cdecl)]
+    public delegate void CP_OnPortReceivedEvent(UIntPtr handle, IntPtr buffer, int count, UIntPtr private_data);
+
+
+    [UnmanagedFunctionPointerAttribute(CallingConvention.Cdecl)]
+    public delegate void CP_OnPrinterStatusEvent(UIntPtr handle, long printer_error_status, long printer_info_status, UIntPtr private_data);
+
+
+    [UnmanagedFunctionPointerAttribute(CallingConvention.Cdecl)]
+    public delegate void CP_OnPrinterReceivedEvent(UIntPtr handle, uint printer_received_byte_count, UIntPtr private_data);
+
+
+    [UnmanagedFunctionPointerAttribute(CallingConvention.Cdecl)]
+    public delegate void CP_OnPrinterPrintedEvent(UIntPtr handle, uint printer_printed_page_id, UIntPtr private_data);
+
+    //      get library version string
+    //
+    //  return
+    //      return library version string
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, EntryPoint = "CP_Library_Version")]
+    public static extern IntPtr __CP_Library_Version();
+    public static String CP_Library_Version() { return Marshal.PtrToStringAnsi(__CP_Library_Version()); }
+
+    //      Enumerate serial port
+    //
+    //  pBuf
+    //      The buffer to save enumerated port list
+    //
+    //  cbBuf
+    //      The buffer size
+    //
+    //  pcbNeeded
+    //      The buffer bytes needed
+    //
+    //  return
+    //      Enumerated port count
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, EntryPoint = "CP_Port_EnumCom")]
+    public static extern uint __CP_Port_EnumCom(byte[] pBuf, uint cbBuf, ref uint pcbNeeded);
+    public static String[] CP_Port_EnumCom()
+    {
+        uint cbNeeded = 0;
+        __CP_Port_EnumCom(null, 0, ref cbNeeded);
+        if (cbNeeded > 0)
+        {
+            byte[] pBuf = new byte[cbNeeded];
+            if (pBuf != null)
+            {
+                __CP_Port_EnumCom(pBuf, cbNeeded, ref cbNeeded);
+                String s = System.Text.Encoding.Default.GetString(pBuf);
+                String[] ss = s.Split(new char[] { '\0' }, StringSplitOptions.RemoveEmptyEntries);
+                return ss;
+            }
+        }
+        return null;
+    }
+
+    //      Enumerate parallel port
+    //
+    //  pBuf
+    //      The buffer to save enumerated port list
+    //
+    //  cbBuf
+    //      The buffer size
+    //
+    //  pcbNeeded
+    //      The buffer bytes needed
+    //
+    //  return
+    //      Enumerated port count
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, EntryPoint = "CP_Port_EnumLpt")]
+    public static extern uint __CP_Port_EnumLpt(byte[] pBuf, uint cbBuf, ref uint pcbNeeded);
+    public static String[] CP_Port_EnumLpt()
+    {
+        uint cbNeeded = 0;
+        __CP_Port_EnumLpt(null, 0, ref cbNeeded);
+        if (cbNeeded > 0)
+        {
+            byte[] pBuf = new byte[cbNeeded];
+            if (pBuf != null)
+            {
+                __CP_Port_EnumLpt(pBuf, cbNeeded, ref cbNeeded);
+                String s = System.Text.Encoding.Default.GetString(pBuf);
+                String[] ss = s.Split(new char[] { '\0' }, StringSplitOptions.RemoveEmptyEntries);
+                return ss;
+            }
+        }
+        return null;
+    }
+
+    //      Enumerate usb port
+    //
+    //  pBuf
+    //      The buffer to save enumerated port list
+    //
+    //  cbBuf
+    //      The buffer size
+    //
+    //  pcbNeeded
+    //      The buffer bytes needed
+    //
+    //  return
+    //      Enumerated port count
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, EntryPoint = "CP_Port_EnumUsb")]
+    public static extern uint __CP_Port_EnumUsb(byte[] pBuf, uint cbBuf, ref uint pcbNeeded);
+    public static String[] CP_Port_EnumUsb()
+    {
+        uint cbNeeded = 0;
+        __CP_Port_EnumUsb(null, 0, ref cbNeeded);
+        if (cbNeeded > 0)
+        {
+            byte[] pBuf = new byte[cbNeeded];
+            if (pBuf != null)
+            {
+                __CP_Port_EnumUsb(pBuf, cbNeeded, ref cbNeeded);
+                String s = System.Text.Encoding.Default.GetString(pBuf);
+                String[] ss = s.Split(new char[] { '\0' }, StringSplitOptions.RemoveEmptyEntries);
+                return ss;
+            }
+        }
+        return null;
+    }
+
+    //      Enumerate net printer
+    //
+    //  timeout
+    //      enumrate timeout ms
+    //
+    //  cancel
+    //      cancel bit, if value is non-zero, enum process will exit.
+    //
+    //  on_discovered
+    //      enumrated callback function
+    //
+    //  private_data
+    //      the parameter passed to callback function
+    //
+    //  return
+    //      none
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern void CP_Port_EnumNetPrinter(uint timeout, ref int cancel, [MarshalAs(UnmanagedType.FunctionPtr)]CP_OnNetPrinterDiscovered on_discovered, UIntPtr private_data);
+
+    //      Open com port
+    //
+    // name
+    //      port name
+    //      for example COM1,COM2,COM3,...COM11...
+    //
+    // baudrate
+    //      baudrate
+    //      Normally choose 9600,19200,38400,57600,115200.
+    //      Need to keep the same as printer baudrate, suggest using high baudrate to get better printing speed.
+    //
+    // databits
+    //      databits, value range is [4,8]
+    //
+    // parity
+    //      Parity bit, The values are defined as follows:
+    //      value    define
+    //      0     no parity
+    //      1     odd parity
+    //      2     even parity
+    //      3     mark parity
+    //      4     space parity
+    //
+    // stopbits
+    //      Parity bit, The values are defined as follows:
+    //      value    define
+    //      0     1bit stopbits
+    //      1     1.5bit stopbits
+    //      2     2bit stopbits
+    //
+    // flowcontrol
+    //      flow control
+    //
+    // autoreplymode
+    //      0 don't start autoreplymode
+    //      1 start autoreplymode
+    //      attention:
+    //      Only some models support automatic return mode, please ask the seller if you support it
+    //      After the automatic return mode is enabled, the printer will return the status automatically
+    //      The state of the printer cannot be automatically obtained if it is not started
+    //
+    // return
+    //      Return handle, If open success, return non-zero value, else return zero.
+    //
+    // remarks
+    //      If serial port was occupied, open serial will fail
+    //      If baud rate don't match with printer baud rate, it won't print.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern UIntPtr CP_Port_OpenCom(String name, int baudrate, int databits, int parity, int stopbits, int flowcontrol, int autoreplymode);
+
+    //      Open Lpt
+    //
+    // name
+    //      port name
+    //      for example: LPT1,LPT2,LPT3...
+    //
+    // return
+    //      Return handle, If open success, return non-zero value, else return zero.
+    //
+    // remarks
+    //      Parallel port just support one way communication, just can write, but can't read
+    //      All the query status function, are invalid for parallel port.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern UIntPtr CP_Port_OpenLpt(String name);
+
+    //      Open USB
+    //
+    // name
+    //      port name
+    //      Can get printer name through Port_EnumUSB
+    //      Can use any other strings, at this time, if find USB printer, will open directly.
+    //
+    // autoreplymode
+    //      0 don't start autoreplymode
+    //      1 start autoreplymode
+    //      attention:
+    //      Only some models support automatic return mode, please ask the seller if you support it
+    //      After the automatic return mode is enabled, the printer will return the status automatically
+    //      The state of the printer cannot be automatically obtained if it is not started
+    //
+    // return
+    //      Return handle, If open success, return non-zero value, else return zero.
+    //
+    // remarks
+    //      USB printer connect to computer, if device manager appear USB Printing Support, then can open USE this function.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern UIntPtr CP_Port_OpenUsb(String name, int autoreplymode);
+
+    //      Open Tcp
+    //
+    // local_ip
+    //      Bind to local IP
+    //      For multiple network CARDS or multiple local ips, select the specified IP
+    //      Passing in a 0 indicates that it is not specified
+    //
+    // dest_ip
+    //      IP Addres or printer name
+    //      For example: 192.168.1.87
+    //
+    // dest_port
+    //      Port Number
+    //      Fixed value: 9100
+    //
+    // timeout
+    //      connect timeout
+    //
+    // autoreplymode
+    //      0 don't start autoreplymode
+    //      1 start autoreplymode
+    //      attention:
+    //      Only some models support automatic return mode, please ask the seller if you support it
+    //      After the automatic return mode is enabled, the printer will return the status automatically
+    //      The state of the printer cannot be automatically obtained if it is not started
+    //
+    // return
+    //      Return handle, If open success, return non-zero value, else return zero.
+    //
+    // remarks
+    //      PC and printer need in the same network segment, so they can connect
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern UIntPtr CP_Port_OpenTcp(String local_ip, String dest_ip, ushort dest_port, uint timeout, int autoreplymode);
+
+    //      Write data to port
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // buffer
+    //      buffer
+    //
+    // count
+    //      buffer length
+    //
+    // timeout
+    //      Timeout ms
+    //
+    // return
+    //      return bytes writted. or return -1 means failed
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Port_Write(UIntPtr handle, byte[] buffer, int count, int timeout);
+
+    //      Receive data from port
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // buffer
+    //      buffer
+    //
+    // count
+    //      buffer length
+    //
+    // timeout
+    //      Timeout ms
+    //
+    // return
+    //      return bytes readed. or return -1 means failed
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Port_Read(UIntPtr handle, byte[] buffer, int count, int timeout);
+
+    //      Receive data from port
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // buffer
+    //      buffer
+    //
+    // count
+    //      buffer length
+    //
+    // timeout
+    //      Timeout ms
+    //
+    // breakByte
+    //      break read byte
+    //
+    // return
+    //      return bytes readed. or return -1 means failed
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Port_ReadUntilByte(UIntPtr handle, byte[] buffer, int count, int timeout, byte breakByte);
+
+    //      get readable data from port
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      return readable. or return -1 means failed
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Port_Available(UIntPtr handle);
+
+    //      Skip receive buffer
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void CP_Port_SkipAvailable(UIntPtr handle);
+
+    //      Check Connection Valid
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      Returns true if the port is open and the status is continuously updated
+    //      False is returned if the port is not open, closed, or the status is not updated for more than 6 seconds
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Port_IsConnectionValid(UIntPtr handle);
+
+    //      Check Connection Valid
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      Returns true if the port is open and the connection is not broken or closed
+    //      Returns false if the port is not open, or if the connection is broken or closed
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Port_IsOpened(UIntPtr handle);
+
+    //      Close Port
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void CP_Port_Close(UIntPtr handle);
+
+    //      Add Callback, Port Closed
+    //
+    //  event
+    //      callback function
+    //
+    //  private_data
+    //      the parameter passed to callback function
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Port_AddOnPortClosedEvent([MarshalAs(UnmanagedType.FunctionPtr)]CP_OnPortClosedEvent evt, UIntPtr private_data);
+
+    //      Add Callback, Port Written Bytes
+    //
+    //  event
+    //      callback function
+    //
+    //  private_data
+    //      the parameter passed to callback function
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Port_AddOnPortWrittenEvent([MarshalAs(UnmanagedType.FunctionPtr)]CP_OnPortWrittenEvent evt, UIntPtr private_data);
+
+    //      Add Callback, Port Received Bytes
+    //
+    //  event
+    //      callback function
+    //
+    //  private_data
+    //      the parameter passed to callback function
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Port_AddOnPortReceivedEvent([MarshalAs(UnmanagedType.FunctionPtr)]CP_OnPortReceivedEvent evt, UIntPtr private_data);
+
+    //      Remove Callback
+    //
+    //  event
+    //      callback function
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Port_RemoveOnPortClosedEvent([MarshalAs(UnmanagedType.FunctionPtr)]CP_OnPortClosedEvent evt);
+
+    //      Remove Callback
+    //
+    //  event
+    //      callback function
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Port_RemoveOnPortWrittenEvent([MarshalAs(UnmanagedType.FunctionPtr)]CP_OnPortWrittenEvent evt);
+
+    //      Remove Callback
+    //
+    //  event
+    //      callback function
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Port_RemoveOnPortReceivedEvent([MarshalAs(UnmanagedType.FunctionPtr)]CP_OnPortReceivedEvent evt);
+
+    //      Add Callback, Printer Status Updated
+    //
+    //  event
+    //      callback function
+    //
+    //  private_data
+    //      the parameter passed to callback function
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Printer_AddOnPrinterStatusEvent([MarshalAs(UnmanagedType.FunctionPtr)]CP_OnPrinterStatusEvent evt, UIntPtr private_data);
+
+    //      Add Callback, Printer Received Byte Count Updated
+    //
+    //  event
+    //      callback function
+    //
+    //  private_data
+    //      the parameter passed to callback function
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Printer_AddOnPrinterReceivedEvent([MarshalAs(UnmanagedType.FunctionPtr)]CP_OnPrinterReceivedEvent evt, UIntPtr private_data);
+
+    //      Add Callback, Printer Printed Page ID Updated
+    //
+    //  event
+    //      callback function
+    //
+    //  private_data
+    //      the parameter passed to callback function
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Printer_AddOnPrinterPrintedEvent([MarshalAs(UnmanagedType.FunctionPtr)]CP_OnPrinterPrintedEvent evt, UIntPtr private_data);
+
+    //      Remove Callback
+    //
+    //  event
+    //      callback function
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Printer_RemoveOnPrinterStatusEvent([MarshalAs(UnmanagedType.FunctionPtr)]CP_OnPrinterStatusEvent evt);
+
+    //      Remove Callback
+    //
+    //  event
+    //      callback function
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Printer_RemoveOnPrinterReceivedEvent([MarshalAs(UnmanagedType.FunctionPtr)]CP_OnPrinterReceivedEvent evt);
+
+    //      Remove Callback
+    //
+    //  event
+    //      callback function
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Printer_RemoveOnPrinterPrintedEvent([MarshalAs(UnmanagedType.FunctionPtr)]CP_OnPrinterPrintedEvent evt);
+
+    //      Get Printer Resolution Info
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    //  width_mm
+    //      Max Page Width
+    //
+    //  height_mm
+    //      Max Page Height
+    //
+    //  dots_per_mm
+    //      Dots Per MM
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Printer_GetPrinterResolutionInfo(UIntPtr handle, ref uint width_mm, ref uint height_mm, ref uint dots_per_mm);
+
+    //      Get Printer Firmware Version
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    //  pBuf
+    //      The buffer
+    //
+    //  cbBuf
+    //      The buffer size
+    //
+    //  pcbNeeded
+    //      The buffer bytes needed
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, EntryPoint = "CP_Printer_GetPrinterFirmwareVersion")]
+    public static extern uint __CP_Printer_GetPrinterFirmwareVersion(UIntPtr handle, byte[] pBuf, uint cbBuf, ref uint pcbNeeded);
+    public static String CP_Printer_GetPrinterFirmwareVersion(UIntPtr handle)
+    {
+        uint cbNeeded = 0;
+        __CP_Printer_GetPrinterFirmwareVersion(handle, null, 0, ref cbNeeded);
+        if (cbNeeded > 0)
+        {
+            byte[] pBuf = new byte[cbNeeded];
+            if (pBuf != null)
+            {
+                __CP_Printer_GetPrinterFirmwareVersion(handle, pBuf, cbNeeded, ref cbNeeded);
+                String s = System.Text.Encoding.Default.GetString(pBuf, 0, pBuf.Length - 1);
+                return s;
+            }
+        }
+        return null;
+    }
+
+    //      Get Printer Status
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    //  printer_error_status
+    //      Printer Error Status
+    //
+    //  printer_info_status
+    //      Printer Info Status
+    //
+    //  timestamp_ms
+    //      timestamp
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Printer_GetPrinterStatusInfo(UIntPtr handle, ref long printer_error_status, ref long printer_info_status, ref long timestamp_ms);
+
+    //      Get Printer Received Byte Count
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    //  printer_received_byte_count
+    //      Printer Received Byte Count
+    //
+    //  timestamp_ms
+    //      timestamp
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Printer_GetPrinterReceivedInfo(UIntPtr handle, ref uint printer_received_byte_count, ref long timestamp_ms);
+
+    //      Get Printer Printed Page ID
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    //  printer_printed_page_id
+    //      Printer Printed Page ID
+    //
+    //  timestamp_ms
+    //      timestamp
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Printer_GetPrinterPrintedInfo(UIntPtr handle, ref uint printer_printed_page_id, ref long timestamp_ms);
+
+    //      Get Printer Label Position Adjustment
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    //  label_print_position_adjustment
+    //      Printer label print position adjustment
+    //
+    //  label_tear_position_adjustment
+    //      Printer label tear position adjustment
+    //
+    //  timestamp_ms
+    //      timestamp
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Printer_GetPrinterLabelPositionAdjustmentInfo(UIntPtr handle, ref double label_print_position_adjustment, ref double label_tear_position_adjustment, ref long timestamp_ms);
+
+    //      adjust label print position and tear paper position
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // label_print_position_adjustment
+    //      Label print position adjustment mm (adjustment can not exceed [-4,4])
+    //
+    // label_tear_position_adjustment
+    //      Label tear position adjustment mm (adjustment can not exceed [-4,4])
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Printer_SetPrinterLabelPositionAdjustmentInfo(UIntPtr handle, double label_print_position_adjustment, double label_tear_position_adjustment);
+
+    //      Clear Printer Buffer Runtime
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Printer_ClearPrinterBuffer(UIntPtr handle);
+
+    //      Clear Printer Error Runtime
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      true on success.
+    //      false on failed.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Printer_ClearPrinterError(UIntPtr handle);
+
+    //      Query the real-time status of the printer
+    //      If it is a machine that supports automatic return, the state will be returned automatically. No need to use this command to query
+    //      Due to the real-time state instruction, there is no check, the result cannot be guaranteed to be correct
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // timeout
+    //      timeout ms
+    //      The wait time for query does not exceed this time
+    //
+    // return
+    //      If command is successfully, it returns rtstatus else it returns 0.
+    //      Please check CP_RTSTATUS_XXX for the detailed status. If the status definition is inconsistent with the actual model, the actual measurement shall prevail.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_QueryRTStatus(UIntPtr handle, uint timeout);
+
+    //      Query the print result of the previous content
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // timeout
+    //      timeout ms
+    //      The wait time for query print results does not exceed this time
+    //
+    // return
+    //      If print is successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_QueryPrintResult(UIntPtr handle, uint timeout);
+
+    //      Turn on cashbox
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nDrawerIndex
+    //      Cashbox no, value are defined as follow:
+    //      value      define
+    //        0      Cashbox pin 2
+    //        1      Cashbox pin 5
+    //
+    // nHighLevelTime
+    //      Cashbox pulse high potential ms time
+    //
+    // nLowLevelTime
+    //      Cashbox pulse low potential ms time
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_KickOutDrawer(UIntPtr handle, int nDrawerIndex, int nHighLevelTime, int nLowLevelTime);
+
+    //      Buzzer call
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nBeepCount
+    //      Calling times
+    //
+    // nBeepMs
+    //      Calling time ms, value range is [100,900], flour to 100 milliseconds.
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_Beep(UIntPtr handle, int nBeepCount, int nBeepMs);
+
+    //      feed to cutter position and half cut paper
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_FeedAndHalfCutPaper(UIntPtr handle);
+
+    //      full cut paper
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_FullCutPaper(UIntPtr handle);
+
+    //      half cut paper
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_HalfCutPaper(UIntPtr handle);
+
+    //      printer feed numLines
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // numLines
+    //      number of lines to feed
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_FeedLine(UIntPtr handle, int numLines);
+
+    //      printer feed numDots
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // numDots
+    //      number of dots to feed
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_FeedDot(UIntPtr handle, int numDots);
+
+    //      printer print self test page
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_PrintSelfTestPage(UIntPtr handle);
+
+    //       print text
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // str
+    //      the string to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Pos_PrintText(UIntPtr handle, String str);
+
+    //       print text
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // str
+    //      the string to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    //
+    // remarks
+    //      The function converts the data to UTF8 encoding.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
+    public static extern int CP_Pos_PrintTextInUTF8(UIntPtr handle, String str);
+
+    //       print text
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // str
+    //      the string to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    //
+    // remarks
+    //      The function converts the data to GBK encoding.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
+    public static extern int CP_Pos_PrintTextInGBK(UIntPtr handle, String str);
+
+    //       print text
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // str
+    //      the string to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    //
+    // remarks
+    //      The function converts the data to BIG5 encoding.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
+    public static extern int CP_Pos_PrintTextInBIG5(UIntPtr handle, String str);
+
+    //       print text
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // str
+    //      the string to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    //
+    // remarks
+    //      The function converts the data to ShiftJIS encoding.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
+    public static extern int CP_Pos_PrintTextInShiftJIS(UIntPtr handle, String str);
+
+    //       print text
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // str
+    //      the string to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    //
+    // remarks
+    //      The function converts the data to EUCKR encoding.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
+    public static extern int CP_Pos_PrintTextInEUCKR(UIntPtr handle, String str);
+
+    //      print 1D barcode
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nBarcodeType
+    //      barcode type
+    //      values are defined as follow:
+    //      value    type
+    //      0x41     UPC-A
+    //      0x42     UPC-E
+    //      0x43     EAN13
+    //      0x44     EAN8
+    //      0x45     CODE39
+    //      0x46     ITF
+    //      0x47     CODABAR
+    //      0x48     CODE93
+    //      0x49     CODE128
+    //
+    // str
+    //      the barcode data to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Pos_PrintBarcode(UIntPtr handle, int nBarcodeType, String str);
+
+    //      print Code128 barcode, this function auto change type b and c to print more characters.
+    //      Normally, do not use this function to print CODE128 code
+    //      This function is mainly used for compatibility with some older models
+    //      New models already support automatic switching codes by default
+    //      New models cannot print barcodes using this function
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // str
+    //      the barcode data to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Pos_PrintBarcode_Code128Auto(UIntPtr handle, String str);
+
+    //      print qrcode
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nVersion
+    //      Assign charater version. The value range is:[0,16]
+    //      When version is 0, printer caculates version number according to character set automatically.
+    //
+    // nECCLevel
+    //      Assign error correction level.
+    //      The value range is: [1, 4].
+    //      Definitios are as below:
+    //      ECC error correction level
+    //      1   L:7%, low error correction, much data.
+    //      2   M:15%, medium error correction
+    //      3   Q:optimize error correction
+    //      4   H:30%, the highest error correction, less data.
+    //
+    // str
+    //      the qrcode data to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Pos_PrintQRCode(UIntPtr handle, int nVersion, int nECCLevel, String str);
+
+    //      print qrcode
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nQRCodeUnitWidth
+    //     QRCode code block width, the value range is [1, 16]
+    //
+    // nECCLevel
+    //      Assign error correction level.
+    //      The value range is: [1, 4].
+    //      Definitios are as below:
+    //      ECC error correction level
+    //      1   L:7%, low error correction, much data.
+    //      2   M:15%, medium error correction
+    //      3   Q:optimize error correction
+    //      4   H:30%, the highest error correction, less data.
+    //
+    // str
+    //      the qrcode data to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Pos_PrintQRCodeUseEpsonCmd(UIntPtr handle, int nQRCodeUnitWidth, int nECCLevel, String str);
+
+    //      print 2 qrcode
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nQRCodeUnitWidth
+    //     QRCode code block width, the value range is [1, 8]
+    //
+    // nQR1Position
+    // nQR2Position
+    //      QRCode position
+    //
+    // nQR1Version
+    // nQR2Version
+    //      Assign charater version. The value range is:[0,16]
+    //      When version is 0, printer caculates version number according to character set automatically.
+    //
+    // nQR1ECCLevel
+    // nQR2ECCLevel
+    //      Assign error correction level.
+    //      The value range is: [1, 4].
+    //      Definitios are as below:
+    //      ECC error correction level
+    //      1   L:7%, low error correction, much data.
+    //      2   M:15%, medium error correction
+    //      3   Q:optimize error correction
+    //      4   H:30%, the highest error correction, less data.
+    //
+    // strQR1
+    // strQR2
+    //      the qrcode data to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Pos_PrintDoubleQRCode(UIntPtr handle, int nQRCodeUnitWidth, int nQR1Position, int nQR1Version, int nQR1ECCLevel, String strQR1, int nQR2Position, int nQR2Version, int nQR2ECCLevel, String strQR2);
+
+    //      print pdf417 barcode
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // columnCount
+    //      column count, range is [0,30]
+    //
+    // rowCount
+    //      row count, range is 0,[3,90]
+    //
+    // unitWidth
+    //      module unit width, range is [2,8]
+    //
+    // rowHeight
+    //      row height, range is [2,8]
+    //
+    // nECCLevel
+    //      ecc level, range is [0,8]
+    //
+    // dataProcessingMode
+    //      data processing mode, 0 select standard PDF417, 1 select cutoff PDF417
+    //
+    // str
+    //      the pdf417 data to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Pos_PrintPDF417BarcodeUseEpsonCmd(UIntPtr handle, int columnCount, int rowCount, int unitWidth, int rowHeight, int nECCLevel, int dataProcessingMode, String str);
+
+    //      print image
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // dstw
+    //      the width to print
+    //
+    // dsth
+    //      the height to print
+    //
+    // pszFile
+    //      image file path
+    //
+    // binaryzation_method
+    //      image binaryzation method. 0 means use dithering, 1 means use thresholding.
+    //
+    // compression_method
+    //      print data compress method, values are defined as follow
+    //      value define
+    //      0     no compress
+    //      1     compress level 1
+    //      2     compress level 2
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Pos_PrintRasterImageFromFile(UIntPtr handle, int dstw, int dsth, String pszFile, int binaryzation_method, int compression_method);
+
+    //      print image (data can be readed from file)
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // dstw
+    //      the width to print
+    //
+    // dsth
+    //      the height to print
+    //
+    // data
+    //      image data
+    //
+    // data_size
+    //      image data size
+    //
+    // binaryzation_method
+    //      image binaryzation method. 0 means use dithering, 1 means use thresholding.
+    //
+    // compression_method
+    //      print data compress method, values are defined as follow
+    //      value define
+    //      0     no compress
+    //      1     compress level 1
+    //      2     compress level 2
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_PrintRasterImageFromData(UIntPtr handle, int dstw, int dsth, byte[] data, int data_size, int binaryzation_method, int compression_method);
+
+    //      print image pixels
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // img_data
+    //      image pixels data
+    //
+    // img_datalen
+    //      image pixels data length
+    //
+    // img_width
+    //      image pixel width
+    //
+    // img_height
+    //      image pixel height
+    //
+    // img_stride
+    //      image horizontal stirde. means bytes per line.
+    //
+    // img_format
+    //      image pixel data format, values are defined as follow
+    //      value define
+    //      1     mono
+    //      2     monolsb
+    //      3     gray
+    //      4     r.g.b in byte-ordered
+    //      5     b.g.r in byte-ordered
+    //      6     a.r.g.b in byte-ordered
+    //      7     r.g.b.a in byte-ordered
+    //      8     a.b.g.r in byte-ordered
+    //      9     b.g.r.a in byte-ordered
+    //
+    // binaryzation_method
+    //      image binaryzation method. 0 means use dithering, 1 means use thresholding.
+    //
+    // compression_method
+    //      print data compress method, values are defined as follow
+    //      value define
+    //      0     no compress
+    //      1     compress level 1
+    //      2     compress level 2
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_PrintRasterImageFromPixels(UIntPtr handle, byte[] img_data, int img_datalen, int img_width, int img_height, int img_stride, int img_format, int binaryzation_method, int compression_method);
+
+    //      print one horizontal line
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nLineStartPosition
+    //      line start position
+    //
+    // nLineEndPosition
+    //      line end position
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_PrintHorizontalLine(UIntPtr handle, int nLineStartPosition, int nLineEndPosition);
+
+    //      print one horizontal line
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nLineStartPosition
+    //      line start position
+    //
+    // nLineEndPosition
+    //      line end position
+    //
+    // nLineThickness
+    //      line thickness
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_PrintHorizontalLineSpecifyThickness(UIntPtr handle, int nLineStartPosition, int nLineEndPosition, int nLineThickness);
+
+    //      print multiple horizontal lines at one row, multi call can print curve
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nLineCount
+    //      Line count
+    //
+    // pLineStartPosition
+    //      Line start position
+    //
+    // pLineEndPosition
+    //      Line end position
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_PrintMultipleHorizontalLinesAtOneRow(UIntPtr handle, int nLineCount, int[] pLineStartPosition, int[] pLineEndPosition);
+
+    //      reset printer, clear settings
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_ResetPrinter(UIntPtr handle);
+
+    //      set print speed (some printer suppert)
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nSpeed
+    //      print speed in mm/s
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetPrintSpeed(UIntPtr handle, int nSpeed);
+
+    //      set print density (some printer suppert)
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nDensity
+    //      the print density[0,15]
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetPrintDensity(UIntPtr handle, int nDensity);
+
+    //      set printer to single byte mode
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetSingleByteMode(UIntPtr handle);
+
+    //      set print speed (some printer suppert)
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nCharacterSet
+    //      character set, range is [0, 15]
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetCharacterSet(UIntPtr handle, int nCharacterSet);
+
+    //      set character codepage
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nCharacterCodepage
+    //      character codepage, range is [0,255]
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetCharacterCodepage(UIntPtr handle, int nCharacterCodepage);
+
+    //      set printer to multi byte mode
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetMultiByteMode(UIntPtr handle);
+
+    //      set printer multi byte encoding
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nEncoding
+    //      multi byte encoding, values defined as follow:
+    //      value define
+    //      0     GBK
+    //      1     UTF8
+    //      3     BIG5
+    //      4     SHIFT-JIS
+    //      5     EUC-KR
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetMultiByteEncoding(UIntPtr handle, int nEncoding);
+
+    //      set print movement unit
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nHorizontalMovementUnit
+    //      horizontal movement unit
+    //
+    // nVerticalMovementUnit
+    //      vertical movement unit
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    //
+    // remarks
+    //      if set movement unit to 200, 1mm means 8point.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetMovementUnit(UIntPtr handle, int nHorizontalMovementUnit, int nVerticalMovementUnit);
+
+    //      set print area left margin
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nLeftMargin
+    //      print area left margin
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetPrintAreaLeftMargin(UIntPtr handle, int nLeftMargin);
+
+    //      set print area width
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nWidth
+    //      print area width
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetPrintAreaWidth(UIntPtr handle, int nWidth);
+
+    //      set horizontal absolute print position
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nPosition
+    //      print position
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetHorizontalAbsolutePrintPosition(UIntPtr handle, int nPosition);
+
+    //      set horizontal relative print position
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nPosition
+    //      print position
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetHorizontalRelativePrintPosition(UIntPtr handle, int nPosition);
+
+    //      set vertical absolute print position, only valid in page mode.
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nPosition
+    //      print position
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetVerticalAbsolutePrintPosition(UIntPtr handle, int nPosition);
+
+    //      set vertical relative print position, only valid in page mode.
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nPosition
+    //      print position
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetVerticalRelativePrintPosition(UIntPtr handle, int nPosition);
+
+    //      set print alignment
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nAlignment
+    //      print alignment, value are defined as follow:
+    //      value define
+    //      0     align left
+    //      1     align center
+    //      2     align right
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetAlignment(UIntPtr handle, int nAlignment);
+
+    //      set text scale
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nWidthScale
+    //      width scale
+    //
+    // nHeightScale
+    //      height scale
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetTextScale(UIntPtr handle, int nWidthScale, int nHeightScale);
+
+    //      set ascii text font type
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nFontType
+    //      ascii text font type, values defined as follow:
+    //      value define
+    //      0     FontA (12x24)
+    //      1     FontB (9x17)
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetAsciiTextFontType(UIntPtr handle, int nFontType);
+
+    //      set text bold
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nBold
+    //      text bold , values defined as follow:
+    //      value define
+    //      0     don't bold
+    //      1     bold
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetTextBold(UIntPtr handle, int nBold);
+
+    //      set text underline
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nUnderline
+    //      text underline, values defined as follow:
+    //      value define
+    //      0     no underline
+    //      1     1 point underline
+    //      2     2 point underline
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetTextUnderline(UIntPtr handle, int nUnderline);
+
+    //      set text upside down
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nUpsideDown
+    //      upside down, values defined as follow:
+    //      value define
+    //      0     print text dont't upside down
+    //      1     print text upside down
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetTextUpsideDown(UIntPtr handle, int nUpsideDown);
+
+    //      set text black and white reverse
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nWhiteOnBlack
+    //      black and white reverse, values defined as follow:
+    //      value define
+    //      0     print text normal
+    //      1     print text black and white reverse
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetTextWhiteOnBlack(UIntPtr handle, int nWhiteOnBlack);
+
+    //      set text rotate 90 print
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nRotate
+    //      set text rotate, value defined as follow:
+    //      value define
+    //      0     print normal
+    //      1     text print rotate 90 degree
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetTextRotate(UIntPtr handle, int nRotate);
+
+    //      set line height
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nLineHeight
+    //      line height, value range is [1,255]
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetTextLineHeight(UIntPtr handle, int nLineHeight);
+
+    //      set ascii text char right spacing
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nSpacing
+    //      right spacing, range is [1,255]
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetAsciiTextCharRightSpacing(UIntPtr handle, int nSpacing);
+
+    //      set kanji text char left spacing and right spacing
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nLeftSpacing
+    //      left spacing, range is [1,255]
+    //
+    // nRightSpacing
+    //      right spacing, range is [1,255]
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetKanjiTextCharSpacing(UIntPtr handle, int nLeftSpacing, int nRightSpacing);
+
+    //      set barcode and qrcode unit width
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nBarcodeUnitWidth
+    //      It assigns the code basic element width. range is [2,6]
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetBarcodeUnitWidth(UIntPtr handle, int nBarcodeUnitWidth);
+
+    //      set barcode height
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nBarcodeHeight
+    //      Barcode height, range is [1,255]
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetBarcodeHeight(UIntPtr handle, int nBarcodeHeight);
+
+    //      set barcode readable text font type
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nFontType
+    //      It assigns HRI(Human Readable Interpretation) character font types.
+    //      value type
+    //      0     standard ASCII
+    //      1     small ASCII
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetBarcodeReadableTextFontType(UIntPtr handle, int nFontType);
+
+    //      set barcode readable text print position
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nTextPosition
+    //      barcode readable text position, value range is [0, 3].
+    //      value defined as follow:
+    //      value define
+    //      0     don't show readable text
+    //      1     show readable text below barcode
+    //      2     show readable text above barcode
+    //      3     show readable text above and below barcode
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Pos_SetBarcodeReadableTextPosition(UIntPtr handle, int nTextPosition);
+
+    //      select page mode
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Page_SelectPageMode(UIntPtr handle);
+
+    //      select page mode and set movement unit , page area.and other params to default value.
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nHorizontalMovementUnit
+    //      horizontal movement unit
+    //
+    // nVerticalMovementUnit
+    //      vertical movement unit
+    //
+    // x
+    //      horizontal start position
+    //
+    // y
+    //      vertical start position
+    //
+    // width
+    //      print area width
+    //
+    // height
+    //      print area height
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Page_SelectPageModeEx(UIntPtr handle, int nHorizontalMovementUnit, int nVerticalMovementUnit, int x, int y, int width, int height);
+
+    //      exit page mode and enter standard mode
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    //      none
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Page_ExitPageMode(UIntPtr handle);
+
+    //      print page in pagemode
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Page_PrintPage(UIntPtr handle);
+
+    //      clear page in pagemode
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Page_ClearPage(UIntPtr handle);
+
+    //      set page area in pagemode, max height is 2000(8 dot per mm)
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      horizontal start position
+    //
+    // y
+    //      vertical start position
+    //
+    // width
+    //      print area width
+    //
+    // height
+    //      print area height
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Page_SetPageArea(UIntPtr handle, int x, int y, int width, int height);
+
+    //      set print direction in pagemode
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // nDirection
+    //      print area direction
+    //      0    left -> right
+    //      1    bottom -> top
+    //      2    right -> left
+    //      3    top -> bottom
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Page_SetPageDrawDirection(UIntPtr handle, int nDirection);
+
+    //      draw rect
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      horizontal position
+    //
+    // y
+    //      vertical position
+    //
+    // width
+    //      rect width
+    //
+    // height
+    //      rect height
+    //
+    // color
+    //      rect color, 0 means white, 1 means black.
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Page_DrawRect(UIntPtr handle, int x, int y, int width, int height, int color);
+
+    //      draw box
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      horizontal position
+    //
+    // y
+    //      vertical position
+    //
+    // width
+    //      box width
+    //
+    // height
+    //      box height
+    //
+    // borderwidth
+    //      box border width
+    //
+    // bordercolor
+    //      box border color, 0 means white, 1 means black.
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Page_DrawBox(UIntPtr handle, int x, int y, int width, int height, int borderwidth, int bordercolor);
+
+    //       draw text
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      horizontal position
+    //
+    // y
+    //      vertical position
+    //
+    // str
+    //      the string to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Page_DrawText(UIntPtr handle, int x, int y, String str);
+
+    //       draw text
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      horizontal position
+    //
+    // y
+    //      vertical position
+    //
+    // str
+    //      the string to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    //
+    // remarks
+    //      The function converts the data to UTF8 encoding.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
+    public static extern int CP_Page_DrawTextInUTF8(UIntPtr handle, int x, int y, String str);
+
+    //       draw text
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      horizontal position
+    //
+    // y
+    //      vertical position
+    //
+    // str
+    //      the string to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    //
+    // remarks
+    //      The function converts the data to GBK encoding.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
+    public static extern int CP_Page_DrawTextInGBK(UIntPtr handle, int x, int y, String str);
+
+    //       draw text
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      horizontal position
+    //
+    // y
+    //      vertical position
+    //
+    // str
+    //      the string to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    //
+    // remarks
+    //      The function converts the data to BIG5 encoding.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
+    public static extern int CP_Page_DrawTextInBIG5(UIntPtr handle, int x, int y, String str);
+
+    //       draw text
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      horizontal position
+    //
+    // y
+    //      vertical position
+    //
+    // str
+    //      the string to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    //
+    // remarks
+    //      The function converts the data to ShiftJIS encoding.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
+    public static extern int CP_Page_DrawTextInShiftJIS(UIntPtr handle, int x, int y, String str);
+
+    //       draw text
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      horizontal position
+    //
+    // y
+    //      vertical position
+    //
+    // str
+    //      the string to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    //
+    // remarks
+    //      The function converts the data to EUCKR encoding.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
+    public static extern int CP_Page_DrawTextInEUCKR(UIntPtr handle, int x, int y, String str);
+
+    //      print 1D barcode
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      horizontal position
+    //
+    // y
+    //      vertical position
+    //
+    // nBarcodeType
+    //      barcode type
+    //      values are defined as follow:
+    //      value    type
+    //      0x41     UPC-A
+    //      0x42     UPC-E
+    //      0x43     EAN13
+    //      0x44     EAN8
+    //      0x45     CODE39
+    //      0x46     ITF
+    //      0x47     CODABAR
+    //      0x48     CODE93
+    //      0x49     CODE128
+    //
+    // str
+    //      the barcode data to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Page_DrawBarcode(UIntPtr handle, int x, int y, int nBarcodeType, String str);
+
+    //      print qrcode
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      horizontal position
+    //
+    // y
+    //      vertical position
+    //
+    // nVersion
+    //      Assign charater version. The value range is:[0,16]
+    //      When version is 0, printer caculates version number according to character set automatically.
+    //
+    // nECCLevel
+    //      Assign error correction level.
+    //      The value range is: [1, 4].
+    //      Definitios are as below:
+    //      ECC error correction level
+    //      1   L:7%, low error correction, much data.
+    //      2   M:15%, medium error correction
+    //      3   Q:optimize error correction
+    //      4   H:30%, the highest error correction, less data.
+    //
+    // str
+    //      the qrcode data to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Page_DrawQRCode(UIntPtr handle, int x, int y, int nVersion, int nECCLevel, String str);
+
+    //      print image
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      horizontal position
+    //
+    // y
+    //      vertical position
+    //
+    // dstw
+    //      the width to print
+    //
+    // dsth
+    //      the height to print
+    //
+    // pszFile
+    //      image file path
+    //
+    // binaryzation_method
+    //      image binaryzation method. 0 means use dithering, 1 means use thresholding.
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Page_DrawRasterImageFromFile(UIntPtr handle, int x, int y, int dstw, int dsth, String pszFile, int binaryzation_method);
+
+    //      print image (data can be readed from file)
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      horizontal position
+    //
+    // y
+    //      vertical position
+    //
+    // dstw
+    //      the width to print
+    //
+    // dsth
+    //      the height to print
+    //
+    // data
+    //      image data
+    //
+    // data_size
+    //      image data size
+    //
+    // binaryzation_method
+    //      image binaryzation method. 0 means use dithering, 1 means use thresholding.
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Page_DrawRasterImageFromData(UIntPtr handle, int x, int y, int dstw, int dsth, byte[] data, int data_size, int binaryzation_method);
+
+    //      print image pixels
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      horizontal position
+    //
+    // y
+    //      vertical position
+    //
+    // img_data
+    //      image pixels data
+    //
+    // img_datalen
+    //      image pixels data length
+    //
+    // img_width
+    //      image pixel width
+    //
+    // img_height
+    //      image pixel height
+    //
+    // img_stride
+    //      image horizontal stirde. means bytes per line.
+    //
+    // img_format
+    //      image pixel data format, values are defined as follow
+    //      value define
+    //      1     mono
+    //      2     monolsb
+    //      3     gray
+    //      4     r.g.b in byte-ordered
+    //      5     b.g.r in byte-ordered
+    //      6     a.r.g.b in byte-ordered
+    //      7     r.g.b.a in byte-ordered
+    //      8     a.b.g.r in byte-ordered
+    //      9     b.g.r.a in byte-ordered
+    //
+    // binaryzation_method
+    //      image binaryzation method. 0 means use dithering, 1 means use thresholding.
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Page_DrawRasterImageFromPixels(UIntPtr handle, int x, int y, byte[] img_data, int img_datalen, int img_width, int img_height, int img_stride, int img_format, int binaryzation_method);
+
+    //      enable black mark mode, need reboot printer.
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_BlackMark_EnableBlackMarkMode(UIntPtr handle);
+
+    //      disable black mark mode
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_BlackMark_DisableBlackMarkMode(UIntPtr handle);
+
+    //      set black mark max search length(reboot will also valid)
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // maxFindLength
+    //      max find length (maxFindLength x 0.125 mm)
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_BlackMark_SetBlackMarkMaxFindLength(UIntPtr handle, int maxFindLength);
+
+    //      find next black mark
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_BlackMark_FindNextBlackMark(UIntPtr handle);
+
+    //      in black mode, set start print position
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // position
+    //      position > 0 means feed, position < 0 means feedback. distance is position x 0.125 mm.
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_BlackMark_SetBlackMarkPaperPrintPosition(UIntPtr handle, int position);
+
+    //      in black mark mode, set cut position
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // position
+    //      position > 0 means feed, position < 0 means feedback. distance is position x 0.125 mm.
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_BlackMark_SetBlackMarkPaperCutPosition(UIntPtr handle, int position);
+
+    //      full cut paper
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_BlackMark_FullCutBlackMarkPaper(UIntPtr handle);
+
+    //      half cut paper
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_BlackMark_HalfCutBlackMarkPaper(UIntPtr handle);
+
+    //      enable label mode
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Label_EnableLabelMode(UIntPtr handle);
+
+    //      disable label mode
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Label_DisableLabelMode(UIntPtr handle);
+
+    //      calibrate page(change to different label paper, need calibration)
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Label_CalibrateLabel(UIntPtr handle);
+
+    //      Feed paper to gap
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Label_FeedLabel(UIntPtr handle);
+
+    //       assign the start of a Page, and set Page size, reference point coordinates and page rotation.
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      page start point x coordinates
+    //
+    // y
+    //      page start point y coordinates
+    //
+    // width
+    //      page width
+    //
+    // height
+    //      page height
+    //
+    // rotation
+    //      page rotating. The value range of rotate is {0,1}. Page doesn't rotate to print as 0, and rotate 90 degree to print as 1.
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Label_PageBegin(UIntPtr handle, int x, int y, int width, int height, int rotation);
+
+    //      print the Page contents to label paper
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // copies
+    //      Copies [ 1 - 255 ]
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Label_PagePrint(UIntPtr handle, int copies);
+
+    //       draw text in assigned position of Page.only for single line
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      define text start position x coordinates,the value range is: [0,Page_Width-1]
+    //
+    // y
+    //      define text start position y coordinates,the value range is: [0,Page_Height-1]
+    //
+    // font
+    //      Choose font, can use 24.
+    //      some printer can use 16, [20,99].
+    //
+    // style
+    //      chracter style.
+    //      Databits                 define
+    //      0 Bold flag bit:         font bold for 1,don't bold if reset zero clearing.
+    //      1 underline flag bit:    underline text for 1, don't underline if rest zero clearing
+    //      2 inverse flag bit:      inverse for 1(white in black), don't inverse rest zero clearing
+    //      3 delete line flage bit: for 1 text with delete line,don't delete line if reset zero clearing.
+    //      [5,4]  rotate flag bit:  00 rotates 0 degree
+    //                               01 rotates 90 degree
+    //                               10 rotates 180 degree
+    //                               11 rotates 270 degree
+    //      [11,8] font width magnification times;
+    //      [15,12] font height magnification times;
+    //
+    // str
+    //      the string to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Label_DrawText(UIntPtr handle, int x, int y, int font, int style, String str);
+
+    //       draw text in assigned position of Page.only for single line
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      define text start position x coordinates,the value range is: [0,Page_Width-1]
+    //
+    // y
+    //      define text start position y coordinates,the value range is: [0,Page_Height-1]
+    //
+    // font
+    //      Choose font, can use 24.
+    //      some printer can use 16, [20,99].
+    //
+    // style
+    //      chracter style.
+    //      Databits                 define
+    //      0 Bold flag bit:         font bold for 1,don't bold if reset zero clearing.
+    //      1 underline flag bit:    underline text for 1, don't underline if rest zero clearing
+    //      2 inverse flag bit:      inverse for 1(white in black), don't inverse rest zero clearing
+    //      3 delete line flage bit: for 1 text with delete line,don't delete line if reset zero clearing.
+    //      [5,4]  rotate flag bit:  00 rotates 0 degree
+    //                               01 rotates 90 degree
+    //                               10 rotates 180 degree
+    //                               11 rotates 270 degree
+    //      [11,8] font width magnification times;
+    //      [15,12] font height magnification times;
+    //
+    // str
+    //      the string to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    //
+    // remarks
+    //      The function converts the data to UTF8 encoding.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
+    public static extern int CP_Label_DrawTextInUTF8(UIntPtr handle, int x, int y, int font, int style, String str);
+
+    //       draw text in assigned position of Page.only for single line
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      define text start position x coordinates,the value range is: [0,Page_Width-1]
+    //
+    // y
+    //      define text start position y coordinates,the value range is: [0,Page_Height-1]
+    //
+    // font
+    //      Choose font, can use 24.
+    //      some printer can use 16, [20,99].
+    //
+    // style
+    //      chracter style.
+    //      Databits                 define
+    //      0 Bold flag bit:         font bold for 1,don't bold if reset zero clearing.
+    //      1 underline flag bit:    underline text for 1, don't underline if rest zero clearing
+    //      2 inverse flag bit:      inverse for 1(white in black), don't inverse rest zero clearing
+    //      3 delete line flage bit: for 1 text with delete line,don't delete line if reset zero clearing.
+    //      [5,4]  rotate flag bit:  00 rotates 0 degree
+    //                               01 rotates 90 degree
+    //                               10 rotates 180 degree
+    //                               11 rotates 270 degree
+    //      [11,8] font width magnification times;
+    //      [15,12] font height magnification times;
+    //
+    // str
+    //      the string to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    //
+    // remarks
+    //      The function converts the data to GBK encoding.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
+    public static extern int CP_Label_DrawTextInGBK(UIntPtr handle, int x, int y, int font, int style, String str);
+
+    //      Draw 1D code in the assigned position of Page
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      barcode top left corner x coordinates, the value range is: [0,Page_Width-1]
+    //
+    // y
+    //      barcode top left corner y coordinates, the value range is: [0,Page_Height-1]
+    //
+    // nBarcodeType
+    //      barcode type
+    //      values are defined as macros
+    //
+    // nBarcodeTextPrintPosition
+    //      barcode readable text position, value range is [0, 3].
+    //      value defined as follow:
+    //      value define
+    //      0     don't show readable text
+    //      1     show readable text below barcode
+    //      2     show readable text above barcode
+    //      3     show readable text above and below barcode
+    //
+    // height
+    //      define barcode height
+    //
+    // unitwidth
+    //      It assigns the basic element width. value range is [1, 4].
+    //
+    // rotation
+    //      Mean rotating angle,
+    //      the value range is: [0, 3].
+    //      Definitions are as below:
+    //      Rotate value define
+    //      0 doesn't rotate to draw
+    //      1 rotates 90 degree draw.
+    //      2 rotates 180 degree draw.
+    //      3 rotates 270 degree draw
+    //
+    // str
+    //      the barcode data to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Label_DrawBarcode(UIntPtr handle, int x, int y, int nBarcodeType, int nBarcodeTextPrintPosition, int height, int unitwidth, int rotation, String str);
+
+    //      print qrcode
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      Top left corner x coordinates, the value range is: [0,Page_Width-1]
+    //
+    // y
+    //      Top left corner y coordinates, the value range is: [0,Page_Height-1]
+    //
+    // nVersion
+    //      Assign charater version. The value range is:[0,16]
+    //      When version is 0, printer caculates version number according to character set automatically.
+    //
+    // nECCLevel
+    //      Assign error correction level.
+    //      The value range is: [1, 4].
+    //      Definitios are as below:
+    //      ECC error correction level
+    //      1   L: 7%, low error correction, much data.
+    //      2   M: 15%, medium error correction
+    //      3   Q: optimize error correction
+    //      4   H: 30%, the highest error correction, less data.
+    //
+    // unitwidth
+    //      It assigns the basic element width. value range is [1, 4].
+    //
+    // rotation
+    //      Mean rotating angle,
+    //      the value range is: [0, 3].
+    //      Definitions are as below:
+    //      Rotate value define
+    //      0 doesn't rotate to draw
+    //      1 rotates 90 degree draw.
+    //      2 rotates 180 degree draw.
+    //      3 rotates 270 degree draw
+    //
+    // str
+    //      the qrcode data to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Label_DrawQRCode(UIntPtr handle, int x, int y, int nVersion, int nECCLevel, int unitwidth, int rotation, String str);
+
+    //      print pdf417code
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      Top left corner x coordinates, the value range is: [0,Page_Width-1]
+    //
+    // y
+    //      Top left corner y coordinates, the value range is: [0,Page_Height-1]
+    //
+    // column
+    //      ColNum is colnum, which means how many digits in per line. A digit is 17*UnitWidth dots. Line number is produces automatically by printer,the limited range is 3~90. ColNum value range:[1,30].
+    //
+    // nECCLevel
+    //      Assign error correction level.
+    //      The value range is: [0, 8].
+    //      Ecc value, error correction number, stored files number(byte)
+    //      0 2 1108
+    //      1 4 1106
+    //      2 8 1101
+    //      3 16 1092
+    //      4 32 1072
+    //      5 64 1024
+    //      6 128 957
+    //      7 256 804
+    //      8 512 496
+    //
+    // unitwidth
+    //      It assigns the basic element width. value range is [1, 3].
+    //
+    // rotation
+    //      Mean rotating angle,
+    //      the value range is: [0, 3].
+    //      Definitions are as below:
+    //      Rotate value define
+    //      0 doesn't rotate to draw
+    //      1 rotates 90 degree draw.
+    //      2 rotates 180 degree draw.
+    //      3 rotates 270 degree draw
+    //
+    // str
+    //      the pdf417 data to print
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Label_DrawPDF417Code(UIntPtr handle, int x, int y, int column, int nAspectRatio, int nECCLevel, int unitwidth, int rotation, String str);
+
+    //      Draw picture in the assigned position of Page
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      Top left corner x coordinates, the value range is: [0,Page_Width-1]
+    //
+    // y
+    //      Top left corner y coordinates, the value range is: [0,Page_Height-1]
+    //
+    // dstw
+    //      the width to print
+    //
+    // dsth
+    //      the height to print
+    //
+    // pszFile
+    //      image file path
+    //
+    // binaryzation_method
+    //      image binaryzation method. 0 means use dithering, 1 means use thresholding.
+    //
+    // compression_method
+    //      print data compress method, values are defined as follow
+    //      value define
+    //      0     no compress
+    //      1     compress level 1
+    //      2     compress level 2
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern int CP_Label_DrawImageFromFile(UIntPtr handle, int x, int y, int dstw, int dsth, String pszFile, int binaryzation_method, int compression_method);
+
+    //      Draw picture in the assigned position of Page
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      Top left corner x coordinates, the value range is: [0,Page_Width-1]
+    //
+    // y
+    //      Top left corner y coordinates, the value range is: [0,Page_Height-1]
+    //
+    // dstw
+    //      the width to print
+    //
+    // dsth
+    //      the height to print
+    //
+    // data
+    //      image data
+    //
+    // data_size
+    //      image data size
+    //
+    // binaryzation_method
+    //      image binaryzation method. 0 means use dithering, 1 means use thresholding.
+    //
+    // compression_method
+    //      print data compress method, values are defined as follow
+    //      value define
+    //      0     no compress
+    //      1     compress level 1
+    //      2     compress level 2
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Label_DrawImageFromData(UIntPtr handle, int x, int y, int dstw, int dsth, byte[] data, int data_size, int binaryzation_method, int compression_method);
+
+    //      Draw picture in the assigned position of Page
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      Top left corner x coordinates, the value range is: [0,Page_Width-1]
+    //
+    // y
+    //      Top left corner y coordinates, the value range is: [0,Page_Height-1]
+    //
+    // img_data
+    //      image pixels data
+    //
+    // img_datalen
+    //      image pixels data length
+    //
+    // img_width
+    //      image pixel width
+    //
+    // img_height
+    //      image pixel height
+    //
+    // img_stride
+    //      image horizontal stirde. means bytes per line.
+    //
+    // img_format
+    //      image pixel data format, values are defined as follow
+    //      value define
+    //      1     mono
+    //      2     monolsb
+    //      3     gray
+    //      4     r.g.b in byte-ordered
+    //      5     b.g.r in byte-ordered
+    //      6     a.r.g.b in byte-ordered
+    //      7     r.g.b.a in byte-ordered
+    //      8     a.b.g.r in byte-ordered
+    //      9     b.g.r.a in byte-ordered
+    //
+    // binaryzation_method
+    //      image binaryzation method. 0 means use dithering, 1 means use thresholding.
+    //
+    // compression_method
+    //      print data compress method, values are defined as follow
+    //      value define
+    //      0     no compress
+    //      1     compress level 1
+    //      2     compress level 2
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Label_DrawImageFromPixels(UIntPtr handle, int x, int y, byte[] img_data, int img_datalen, int img_width, int img_height, int img_stride, int img_format, int binaryzation_method, int compression_method);
+
+    //      draw line
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // startx
+    //      straightway start point x coordinates,the value range is: [0,Page_Width-1]
+    //
+    // starty
+    //      straightway start point y coordinates,the value range is: [0,Page_Height-1]
+    //
+    // endx
+    //      straightway end point x coordinates,the value range is: [0,Page_Width-1]
+    //
+    // endy
+    //      straightway end point y coordinates,the value range is:[0,Page_Height-1]
+    //
+    // linewidth
+    //      line width
+    //
+    // linecolor
+    //      line color, 0 means white, 1 means black.
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Label_DrawLine(UIntPtr handle, int startx, int starty, int endx, int endy, int linewidth, int linecolor);
+
+    //      draw rect
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      horizontal position
+    //
+    // y
+    //      vertical position
+    //
+    // width
+    //      rect width
+    //
+    // height
+    //      rect height
+    //
+    // color
+    //      rect color, 0 means white, 1 means black.
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Label_DrawRect(UIntPtr handle, int x, int y, int width, int height, int color);
+
+    //      draw box
+    //
+    // handle
+    //      Port handle, returned by OpenXXX
+    //
+    // x
+    //      horizontal position
+    //
+    // y
+    //      vertical position
+    //
+    // width
+    //      box width
+    //
+    // height
+    //      box height
+    //
+    // borderwidth
+    //      box border width
+    //
+    // bordercolor
+    //      box border color, 0 means white, 1 means black.
+    //
+    // return
+    //      If command is written successfully, it returns true else it returns false.
+    [DllImport("autoreplyprint.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern int CP_Label_DrawBox(UIntPtr handle, int x, int y, int width, int height, int borderwidth, int bordercolor);
+
+
+}
+}
+
