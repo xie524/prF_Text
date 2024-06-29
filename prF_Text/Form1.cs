@@ -66,7 +66,7 @@ namespace ThermalPrinting
         byte[] data = new byte[5100];
         private void printfQR_15mm()
         {
-            AutoReplyPrint.CP_Pos_SetPrintSpeed(H_15MM, 200);
+            AutoReplyPrint.CP_Pos_SetPrintSpeed(H_15MM, 210);
             AutoReplyPrint.CP_Pos_SetAlignment(H_15MM, AutoReplyPrint.CP_Pos_Alignment_HCenter);
 
             AutoReplyPrint.CP_Pos_PrintRasterImageFromData(H_15MM, 350, 95, image_15_15MM_Byte, image_15_15MM_Byte.Length, AutoReplyPrint.CP_ImageBinarizationMethod_ErrorDiffusion, AutoReplyPrint.CP_ImageCompressionMethod_None);
