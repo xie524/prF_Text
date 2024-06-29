@@ -24,7 +24,7 @@ namespace ThermalPrinting
             new Thread(new ThreadStart(MY_CODEDLL)).Start();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new prF());
         }
         private static void MY_CODE()
         {

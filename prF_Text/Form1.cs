@@ -19,11 +19,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ThermalPrinting
 {
-    public partial class Form1 : Form
+    public partial class prF : Form
     {
         string filePath = "D:\\MY_QR\\";
         UIntPtr h = UIntPtr.Zero;
-        public Form1()
+        public prF()
         {
             if (!Directory.Exists(filePath))
             {

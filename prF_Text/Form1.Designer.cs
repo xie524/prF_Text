@@ -1,6 +1,6 @@
 ﻿namespace ThermalPrinting
 {
-    partial class Form1
+    partial class prF
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(prF));
             this.textBox_X = new System.Windows.Forms.TextBox();
             this.textBox_Y = new System.Windows.Forms.TextBox();
             this.boBox_Seep = new System.Windows.Forms.TextBox();
@@ -199,7 +199,7 @@
             this.textBox1.Size = new System.Drawing.Size(118, 25);
             this.textBox1.TabIndex = 30;
             // 
-            // Form1
+            // prF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -219,10 +219,11 @@
             this.Controls.Add(this.boBox_Seep);
             this.Controls.Add(this.textBox_Y);
             this.Controls.Add(this.textBox_X);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "prF";
+            this.Text = "prF";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
